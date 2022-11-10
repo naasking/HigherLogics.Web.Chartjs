@@ -17,15 +17,25 @@ namespace HigherLogics.Web.Chartjs
         /// The type of chart to create.
         /// </summary>
         public string Type { get; set; }
+        /// <summary>
+        /// The chart data.
+        /// </summary>
         public ChartData Data { get; set; }
+        /// <summary>
+        /// The chart options. See Chartjs configuration:
+        /// https://www.chartjs.org/docs/latest/configuration/
+        /// </summary>
         public ChartOptions Options { get; set; }
+        /// <summary>
+        /// The plugins to enable.
+        /// </summary>
         public IEnumerable<string> Plugins { get; set; }
 
         /// <summary>
         /// Create a script for the document that initializes a chart with data.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The element id corresponding to this chart.</param>
+        /// <returns>A script that will initialize the chart on load.</returns>
         public string ToScript(string id)
         {
             var buf = new StringBuilder("<script>document.addEventListener('DOMContentLoaded', function() {").AppendLine();
